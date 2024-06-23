@@ -1,0 +1,137 @@
+.media-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3rem;
+  background-color: #0f1015;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.media-player-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  background-color: #1c1f24;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.media-player-file-input {
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #3b3f46;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+
+
+.media-player-file-input:hover {
+  background-color: #4a4f57;
+}
+
+
+.media-player-loading,
+.media-player-error {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.media-player-error {
+  color: #ff4d4d;
+}
+
+.media-player-video {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.media-player-video:hover {
+  transform: scale(1.02);
+}
+
+/* Control buttons styling */
+.media-player-control-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.media-player-control-buttons button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.media-player-control-buttons button:hover {
+  background-color: #3d7ac0;
+}
+
+.media-player-control-buttons button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.media-player-sliders {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.media-player-seek-slider,
+.media-player-volume-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: linear-gradient(to right, #4a90e2, #3d7ac0);
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+}
+
+.media-player-seek-slider::-webkit-slider-thumb,
+.media-player-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.media-player-seek-slider:hover,
+.media-player-volume-slider:hover {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
