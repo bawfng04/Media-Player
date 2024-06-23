@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Media Player</title>
+    <style>
+      #mediaPlayer {
+        max-width: 600px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .controls {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .controls button,
+      .controls input {
+        padding: 5px 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .controls input {
+        cursor: pointer;
+      }
+      video {
+        width: 100%;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mediaPlayer">
+      <video id="videoPlayer" controls>
+        <source src="path_to_your_video_file.mp4" type="video/mp4" />
+        Your browser does not support the video element.
+      </video>
+      <div class="controls">
+        <button id="playButton">Play</button>
+        <button id="pauseButton">Pause</button>
+        <button id="stopButton">Stop</button>
+        <input
+          type="file"
+          id="fileInput"
+          accept="video/*"
+          placeholder="input"
+        />
+      </div>
+    </div>
+
+    <script>
+      const videoPlayer = document.getElementById("videoPlayer");
+      const fileInput = document.getElementById("fileInput");
+      const playButton = document.getElementById("playButton");
+      const pauseButton = document.getElementById("pauseButton");
+      const stopButton = document.getElementById("stopButton");
+
+      playButton.addEventListener("click", playVideo);
+      pauseButton.addEventListener("click", pauseVideo);
+      stopButton.addEventListener("click", stopVideo);
+
+      function playVideo() {
+        videoPlayer.play();
+      }
+
+      function pauseVideo() {
+        videoPlayer.pause();
+      }
+
+      function stopVideo() {
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+      }
+
+      fileInput.addEventListener("change", function (e) {
+        const files = e.target.files;
+        if (files.length === 0) return;
+        const file = URL.createObjectURL(files[0]);
+        videoPlayer.src = file;
+        playVideo();
+      });
+    </script>
+  </body>
+</html>
