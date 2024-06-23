@@ -8,6 +8,7 @@ const MediaPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -33,12 +34,9 @@ const MediaPlayer = () => {
     }
   };
 
-  const handlePlay = () => {
-    videoRef.current.play();
-  };
-
-  const handlePause = () => {
-    videoRef.current.pause();
+  const handleIsPlaying = () => {
+    setIsPlaying(!isPlaying);
+    isPlaying ? videoRef.current.pause() : videoRef.current.play();
   };
 
   const handleSeek = (event) => {
@@ -67,11 +65,12 @@ const MediaPlayer = () => {
           accept="video/*"
           onChange={handleFileChange}
           className="media-player-file-input"
+          placeholder="input video file"
         />
         {loading && <p className="media-player-loading">Loading video...</p>}
         {error && <p className="media-player-error">{error}</p>}
         {!loading && !error && fileURL && (
-          <div>
+          <div className="videoBox">
             <video
               ref={videoRef}
               src={fileURL}
@@ -80,8 +79,9 @@ const MediaPlayer = () => {
               onTimeUpdate={() => setCurrentTime(videoRef.current.currentTime)}
             />
             <div className="media-player-control-buttons">
-              <button onClick={handlePlay}>Play</button>
-              <button onClick={handlePause}>Pause</button>
+              <button onClick={handleIsPlaying}>
+                {isPlaying ? "Pause" : "Play"}
+              </button>
               <button onClick={handleMute}>
                 {isMuted ? "Unmute" : "Mute"}
               </button>

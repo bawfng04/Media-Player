@@ -52,8 +52,10 @@
   color: #ff4d4d;
 }
 
+
 .media-player-video {
   max-width: 100%;
+  max-height: 500px;
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
@@ -63,17 +65,19 @@
   transform: scale(1.02);
 }
 
-/* Control buttons styling */
 .media-player-control-buttons {
-  display: flex;
+    display: flex;
+  justify-content: center;
+  align-items: center; 
   gap: 1rem;
   margin: 1rem 0;
 }
 
 .media-player-control-buttons button {
-  padding: 0.75rem 1.25rem;
+    width: 80px;
+  padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   background-color: #4a90e2;
   color: #fff;
   font-size: 1rem;
@@ -90,6 +94,7 @@
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
+/* Sliders styling */
 .media-player-sliders {
   width: 100%;
   display: flex;
@@ -126,6 +131,7 @@
   opacity: 1;
 }
 
+/* Keyframes for fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
