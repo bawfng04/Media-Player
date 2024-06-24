@@ -10,6 +10,25 @@ const MediaPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+  //ratio
+  const videoRatios = [
+    { label: "16:9", value: "16/9" },
+    { label: "4:3", value: "4/3" },
+    { label: "1:1", value: "1/1" },
+    { label: "3:2", value: "3/2" },
+  ];
+  const [currentVideoRatio, setCurrentVideoRatio] = useState(
+    videoRatios[0].value
+  );
+
+  const handleVideoRatioChange = (event) => {
+    const ratioValue = event.target.value;
+    setCurrentVideoRatio(ratioValue);
+  };
+
+  const videoStyle = {
+    aspectRatio: currentVideoRatio,
+  };
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => setLoading(false), 2000);
@@ -77,12 +96,25 @@ const MediaPlayer = () => {
               onError={handleError}
               className="media-player-video"
               onTimeUpdate={() => setCurrentTime(videoRef.current.currentTime)}
+              style={videoStyle}
             />
             <div className="media-player-control-buttons">
-              <button onClick={handleIsPlaying}>
+              <button
+                onClick={handleIsPlaying}
+                style={{
+                  backgroundColor: isPlaying ? "lightcoral" : "lightblue",
+                  color: "white",
+                }}
+              >
                 {isPlaying ? "Pause" : "Play"}
               </button>
-              <button onClick={handleMute}>
+              <button
+                onClick={handleMute}
+                style={{
+                  backgroundColor: isMuted ? "lightcoral" : "lightblue",
+                  color: "white",
+                }}
+              >
                 {isMuted ? "Unmute" : "Mute"}
               </button>
             </div>
@@ -104,6 +136,18 @@ const MediaPlayer = () => {
                 onChange={handleVolumeChange}
                 className="media-player-volume-slider"
               />
+            </div>
+            <div className="media-player-control-buttons">
+              {videoRatios.map((ratio) => (
+                <button
+                  className="media-player-control-buttons"
+                  key={ratio.value}
+                  value={ratio.value}
+                  onClick={handleVideoRatioChange}
+                >
+                  {ratio.label}
+                </button>
+              ))}
             </div>
           </div>
         )}
