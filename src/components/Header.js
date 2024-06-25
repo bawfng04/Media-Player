@@ -42,9 +42,12 @@ function Header() {
               {about && (
                 <div ref={aboutRef} className="about-info fadeIn">
                   <p>
-                    This is a media player that allows you to play videos.
+                    This is a media player that allows you to play videos,
+                    control playback speed, and adjust volume. You can also mute
+                    the video and seek to a specific time in the video, capture
+                    screenshot. The media player is built using React and styled
+                    with CSS.
                     <br></br>
-                    You can play, pause, and control the volume of the video.
                   </p>
                   <button className="closeButtonHeader" onClick={toggleAbout}>
                     Close

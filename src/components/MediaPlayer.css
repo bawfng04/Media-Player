@@ -22,24 +22,24 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.media-player-file-input {
-  margin-bottom: 2rem;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #3b3f46;
-  color: #fff;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease;
+/* Media input */
+.media-player-file-input{
+  padding: 10px;
+  margin-bottom: 30px;
+  width: 90%;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 2px solid #4a90e2;
+  color: white;
+  background-color: #1c1f2475;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-
-
 
 .media-player-file-input:hover {
-  background-color: #4a4f57;
+  transform: translateY(-5px);
+  background-color: #adb5bd65;
 }
-
 
 .media-player-loading,
 .media-player-error {
@@ -74,18 +74,22 @@
 
 .media-player-control-buttons button {
     width: 80px;
-  padding: 10px;
-  border: none;
-  border-radius: 12px;
-  background-color: #4a90e2;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: lightskyblue; 
+    transition: all 0.3s ease;
+}
+
+.media-player-control-buttons button.on {
+    background-color: lightsalmon;
 }
 
 .media-player-control-buttons button:hover {
-  background-color: #3d7ac0;
+  transform: translateY(-2px);
 }
 
 .media-player-control-buttons button:focus {
@@ -139,4 +143,60 @@
     opacity: 1;
   }
 }
+
+.videoInfoDisplay {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  color: #adb5bd;
+  margin-top: 0.5rem;
+}
+
+.videoInfoDisplay p {
+  margin: 0;
+}
+
+.selectButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.selectButton select{
+  background-color: #4a90e2;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+.selectButton select:hover {
+  transform: translateY(-2px);
+  background-color: #3d7ac0;
+}
+
+/*screenshot*/
+.screenshotdiv{
+  position: relative;
+}
+.screenshotButton{
+  position: absolute;
+  top: 0; 
+  right: 0;
+  background-color: #b7e24aab;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+
+/*test*/
 
