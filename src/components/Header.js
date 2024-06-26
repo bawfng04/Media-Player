@@ -32,7 +32,7 @@ function Header() {
       <div className="HeaderComponents">
         <nav>
           <ul>
-            <li>
+            <li className="home">
               <a href="http://localhost:3000/">Home</a>
             </li>
             <li>

@@ -1,3 +1,4 @@
+
 .media-player-container {
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@
   padding: 2.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  
 }
 
 /* Media input */
@@ -28,7 +30,7 @@
   margin-bottom: 30px;
   width: 90%;
   font-size: 1rem;
-  border-radius: 20px;
+  border-radius: 7px;
   border: 2px solid #4a90e2;
   color: white;
   background-color: #1c1f2475;
@@ -53,6 +55,9 @@
 }
 
 .media-player-video {
+  margin: 10px;
+  background-color: #1d1a1a57; 
+  justify-content: center;
   max-width: 100%;
   max-height: 500px;
   border-radius: 8px;
@@ -62,6 +67,11 @@
 
 .media-player-video:hover {
   transform: scale(1.02);
+}
+
+.videoCenter{
+  display: flex;
+  justify-content: center;
 }
 
 .media-player-control-buttons {
@@ -80,12 +90,12 @@
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
-    background-color: lightskyblue; 
+    background-color: rgb(51, 172, 248); 
     transition: all 0.3s ease;
 }
 
 .media-player-control-buttons button.on {
-    background-color: lightsalmon;
+    background-color: rgb(251, 129, 81);
 }
 
 .media-player-control-buttons button:hover {
@@ -97,6 +107,8 @@
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
+
+
 /* Sliders styling */
 .media-player-sliders {
   width: 100%;
@@ -105,17 +117,17 @@
   gap: 1rem;
 }
 
+
 .media-player-seek-slider,
 .media-player-volume-slider {
   width: 100%;
   -webkit-appearance: none;
   appearance: none;
-  height: 8px;
+  height: 10px;
   background: linear-gradient(to right, #4a90e2, #3d7ac0);
-  outline: none;
-  opacity: 0.7;
+  opacity: 0.8;
   transition: opacity 0.2s;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 .media-player-seek-slider::-webkit-slider-thumb,
@@ -125,7 +137,7 @@
   width: 16px;
   height: 16px;
   background-color: #fff;
-  border-radius: 50%;
+  border-radius: 40%;
   cursor: pointer;
 }
 
@@ -167,6 +179,7 @@
 .selectButton select{
   background-color: #4a90e2;
   padding: 10px;
+  border: 1px solid black;
   border-radius: 15px;
   color: white;
   font-size: 1rem;
@@ -180,15 +193,19 @@
 }
 
 /*screenshot*/
+.placeSbutton{
+  display: flex;
+  justify-content: right;
+}
+
 .screenshotdiv{
   position: relative;
 }
+
 .screenshotButton{
-  position: absolute;
-  top: 0; 
-  right: 0;
   background-color: #b7e24aab;
   padding: 10px;
+  border: 2px solid black;
   border-radius: 15px;
   color: white;
   font-size: 1rem;
@@ -196,7 +213,31 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
 }
+.screenshotButton:hover{
+  transform: translateY(-2px);
+  background-color: #b7e24a;
+}
 
+.downloadButton{
+  padding: 5px;
+  background-color: rgba(218, 241, 87, 0.423);
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.downloadButton:hover{
+  background-color: rgba(218, 241, 87, 0.623);
+  transform: translateY(-2px);
+}
+.image{
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+.image:hover{
+  transform: scale(1.02)
+}
 
 /*test*/
 

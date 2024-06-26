@@ -55,7 +55,23 @@ const MediaPlayer = () => {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     const imageURL = canvas.toDataURL("image/png");
     setScreenshotURL(imageURL);
+    //nhảy đến ảnh chụp
+    const screenshotElement = document.querySelector(".screenshotdiv");
+    screenshotElement.scrollIntoView({ behavior: "smooth" });
   };
+  //download
+  function handleDownload() {
+    if (screenshotURL) {
+      const element = document.createElement("a");
+      element.setAttribute("href", screenshotURL);
+      element.setAttribute("download", "screenshot.png");
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    } else {
+      console.error("No screenshot available to download.");
+    }
+  }
 
   useEffect(() => {
     const loadingTimeout = setTimeout(() => setLoading(false), 2000);
@@ -117,15 +133,30 @@ const MediaPlayer = () => {
         {error && <p className="media-player-error">{error}</p>}
         {!loading && !error && fileURL && (
           <div className="videoBox">
-            <video
-              ref={videoRef}
-              src={fileURL}
-              onError={handleError}
-              className="media-player-video"
-              autoplay
-              onTimeUpdate={() => setCurrentTime(videoRef.current.currentTime)}
-              style={videoStyle}
-            />
+            {/*--------------------------------------------------------------------------------------*/}
+            <div className="videoCenter">
+              <video
+                ref={videoRef}
+                src={fileURL}
+                onError={handleError}
+                className="media-player-video"
+                autoplay
+                onTimeUpdate={() =>
+                  setCurrentTime(videoRef.current.currentTime)
+                }
+                style={videoStyle}
+              />
+            </div>
+            {/*--------------------------------------------------------------------------------------*/}
+            <div className="placeSbutton">
+              <button
+                className="screenshotButton"
+                onClick={handleCaptureScreenshot}
+              >
+                Capture Screenshot
+              </button>
+            </div>
+            {/*--------------------------------------------------------------------------------------*/}
             <div className="media-player-control-buttons">
               <button
                 onClick={handleIsPlaying}
@@ -141,6 +172,7 @@ const MediaPlayer = () => {
                 {isLooping ? "Unloop" : "Loop"}
               </button>
             </div>
+            {/*--------------------------------------------------------------------------------------*/}
             <div className="media-player-sliders">
               <label>Seek:</label>
               <input
@@ -167,10 +199,11 @@ const MediaPlayer = () => {
                 onChange={handleVolumeChange}
                 className="media-player-volume-slider"
               />
+              <div className="videoInfoDisplay">
+                <p>{volume * 100} %</p>
+              </div>
             </div>
-            <div className="videoInfoDisplay">
-              <p>{volume * 100} %</p>
-            </div>
+            {/*--------------------------------------------------------------------------------------*/}
             <div className="selectButton">
               <label>Video Ratio:</label>
               <select
@@ -196,19 +229,23 @@ const MediaPlayer = () => {
                 ))}
               </select>
             </div>
+            {/*--------------------------------------------------------------------------------------*/}
             <div className="screenshotdiv">
-              <button
-                className="screenshotButton"
-                onClick={handleCaptureScreenshot}
-              >
-                Capture Screenshot
-              </button>
               {screenshotURL && (
-                <img
-                  src={screenshotURL}
-                  alt="Screenshot"
-                  style={{ maxWidth: "100%" }}
-                />
+                <>
+                  <img
+                    className="image"
+                    src={screenshotURL}
+                    alt="Screenshot"
+                    style={{
+                      ratio: videoStyle.aspectRatio,
+                      maxWidth: "800px",
+                    }}
+                  />
+                  <button className="downloadButton" onClick={handleDownload}>
+                    Download
+                  </button>
+                </>
               )}
             </div>
           </div>

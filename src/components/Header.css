@@ -66,12 +66,13 @@
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
+
 .HeaderComponents nav ul li a:hover {
-  color: #61dafb;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #116798;
 }
 .headerButtons {
   background-color: transparent;
