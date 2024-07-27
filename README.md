@@ -11,6 +11,11 @@ The React Media Player is a web-based video player built using React. It allows 
 - **Screenshot Capture**: Users can capture a screenshot of the current video frame and save it as a PNG image.
 - **Error Handling**: The player provides error messages if there are any issues with loading the video file.
 
+## Screenshots
+![MP1](https://github.com/user-attachments/assets/7ff481f5-578f-48b4-9039-bd78f9b8584c)
+![MP2](https://github.com/user-attachments/assets/ca185f6b-6ffa-4c80-8e00-85882e3e3fb0)
+
+
 ## Usage
 
 To use the React Media Player, follow these steps:
